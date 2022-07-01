@@ -8,4 +8,7 @@ jobs:
       - name: ZAP Scan
         uses: zaproxy/action-api-scan@v0.1.1
         with:
-          target: 'https://rap.tbportals.niaid.nih.gov/'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: "owasp/zap2docker-stable"
+          target: 'https://rap.niaidawsqa.net/'
+          cmd_options: '-z "-configFile /zap/wrk/options.prop"'
